@@ -4,8 +4,8 @@
     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Unofficial builds: updates come from this device tree's own OTA repo. Delete this
-         overlay if the device becomes official, so the Updater uses Evolution X's servers. -->
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/denson9874/evolution_ota/cnb/builds/{device}.json</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/denson9874/evolution_ota/cnb/changelogs/<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
+    <!-- ExpressiveOS's own update feed. Never rename the repo or its branch: the Updater
+         doesn't follow redirects, so every phone already out there would stop getting updates. -->
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/denson9874/expressiveos_ota/main/builds/{device}.json</string>
+    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/denson9874/expressiveos_ota/main/changelogs/<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
 </resources>
