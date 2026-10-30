@@ -151,3 +151,10 @@ $(call inherit-product, vendor/google/yogi/yogi-vendor.mk)
 # Face unlock enrollment app's user types, from stock preinstalled-packages-tuscany.xml
 PRODUCT_COPY_FILES += \
     device/google/yogi/configs/sysconfig/preinstalled-packages-faceenroll.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/preinstalled-packages-faceenroll.xml
+
+# KernelSU Next manager, byte for byte as upstream signed it, with its arm64 libs
+# (vendor/extra/ksu, which ExpressiveOS's expressiveos-cheetah/ksu/apply-ksu.sh
+# stages). A normal, unprivileged app: no app gets root until the user grants it
+# there.
+PRODUCT_PACKAGES += \
+    KernelSUNext

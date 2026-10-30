@@ -236,3 +236,6 @@ include $(IMAGES_PATH)/BoardConfigImages.mk
 # priv-apps lose their AOT code after every update and run interpreted/JIT
 # until background dexopt catches up (~180 MB, well inside super).
 BOARD_USES_SYSTEM_OTHER_ODEX :=
+
+# KernelSU Next manager (ExpressiveOS only): libksud.so is a program
+TARGET_FS_CONFIG_GEN += device/google/yogi/ksu/config.fs
