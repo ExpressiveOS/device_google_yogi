@@ -52,6 +52,12 @@ PRODUCT_GMS_CLIENTID_BASE := android-google
 TARGET_SCREEN_HEIGHT := 2342
 TARGET_SCREEN_WIDTH := 1080
 
+# Evolution X's Settings overlay: ExpressiveOS's maintainer (overlay-evolution).
+# PRODUCT_, not DEVICE_PACKAGE_OVERLAYS: generic_system.mk's
+# PRODUCT_ENFORCE_RRO_TARGETS := * makes it an RRO, and a device overlay's goes
+# on /vendor, which is stock here and never built.
+PRODUCT_PACKAGE_OVERLAYS += device/google/yogi/overlay-evolution
+
 # Evolution X
 WITH_GMS := true
 TARGET_HAS_UDFPS := false
