@@ -132,6 +132,14 @@ BOARD_SUPER_PARTITION_ERROR_LIMIT := 10213130240
 
 -include vendor/lineage/config/BoardConfigReservedSize.mk
 
+# ExpressiveOS: target-files takes the images the build made instead of making them
+# again, so they're the very images the fastboot zip flashes, and an incremental OTA
+# from a build applies on phones installed from its fastboot zip too. It takes only
+# images whose file system type is set to ext4 or erofs, as system's, system_ext's
+# and product's are below; the stock vendor, vendor_dlkm and system_dlkm images are
+# prebuilt and go into target-files as they are.
+COPY_IMAGES_FOR_TARGET_FILES_ZIP := true
+
 # Stock first-stage fstab mounts system_ext and product as erofs only
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
