@@ -49,7 +49,12 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
+# Built from the generic ramdisk, unless ExpressiveOS's KernelSU Next build gives
+# its own (EOS_KSU_INIT_BOOT, BoardConfig.mk): the build system takes a prebuilt
+# init_boot only while the product doesn't ask for a built one
+ifeq ($(EOS_KSU_INIT_BOOT),)
 PRODUCT_BUILD_INIT_BOOT_IMAGE := true
+endif
 PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
 
 # A/B

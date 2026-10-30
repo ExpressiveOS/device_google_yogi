@@ -239,3 +239,13 @@ BOARD_USES_SYSTEM_OTHER_ODEX :=
 
 # KernelSU Next manager (ExpressiveOS only): libksud.so is a program
 TARGET_FS_CONFIG_GEN += device/google/yogi/ksu/config.fs
+
+# KernelSU Next (ExpressiveOS only): expressiveos-cheetah/ksu/tools/ksu-images.sh
+# builds once, patches that build's init_boot with KernelSU Next
+# (cheetah-ksu.sh), then builds again with EOS_KSU_INIT_BOOT set, so the
+# images and the OTA ship the patched init_boot (re-signed with the tree's
+# init_boot AVB key like a built one). device.mk then stops asking for a
+# built init_boot, which the build system would make instead.
+ifneq ($(EOS_KSU_INIT_BOOT),)
+BOARD_PREBUILT_INIT_BOOT_IMAGE := $(EOS_KSU_INIT_BOOT)
+endif
