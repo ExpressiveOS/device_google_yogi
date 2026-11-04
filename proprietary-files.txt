@@ -118,7 +118,7 @@ system_ext/priv-app/PixelQualifiedNetworksService/PixelQualifiedNetworksService.
 # bind. PixelSatelliteService runs as android.uid.system, and MediaTek's service
 # needs DEVICE_POWER, so both are re-signed with the platform key, not PRESIGNED.
 # (satellite_sos.xml, the Satellite SOS feature declaration, comes from
-# Evolution's GMS, which installs the same path; shipping it here too breaks the
+# vendor/gms, which installs the same path; shipping it here too breaks the
 # build with "overriding commands".)
 product/priv-app/SatelliteGateway-Phone-v96792000/SatelliteGateway-Phone-v96792000.apk;PRESIGNED
 system_ext/priv-app/PixelSatelliteService/PixelSatelliteService.apk
@@ -149,7 +149,7 @@ system_ext/etc/init/init.gs_watchdogd.rc
 system_ext/bin/sconed
 system_ext/etc/init/sconed.rc
 
-# On-device AI, Scam Detection, Magic Cue, and Device Intelligence. Evolution's
+# On-device AI, Scam Detection, Magic Cue, and Device Intelligence.
 # vendor/gms ships the privapp-permissions, sysconfig, and role overlays for
 # AICore (com.google.android.aicore), Pixel Sense / Magic Cue
 # (com.google.android.apps.pixel.psi), Pixel AI / Screenshots

@@ -4,7 +4,7 @@
     SPDX-License-Identifier: Apache-2.0
 
     Adaptive Connectivity Services (SCONE), shipped as stock's privileged app
-    (product/priv-app/SCONE-v77459). Evolution's GMS has no allowlist entry for
+    (product/priv-app/SCONE-v77459). vendor/gms has no allowlist entry for
     it (pm get-privapp-permissions printed {}). These are the platform
     signature|privileged permissions stock's SCONE requests.
 -->
