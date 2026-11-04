@@ -7,7 +7,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
 # RisingOS's vendor/rising adds its own props to /system (PRODUCT_SYSTEM_PROPERTIES),
-# which generic_system.mk's artifact-path check rejects. Evolution X keeps its
+# which generic_system.mk's artifact-path check rejects. ExpressiveOS keeps its
 # props off /system, so it keeps the check.
 ifneq ($(wildcard vendor/rising/config/version.mk),)
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := false
@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 
-# Evolution X puts these in /system, which generic_system.mk's artifact-path
+# ExpressiveOS puts these in /system, which generic_system.mk's artifact-path
 # rules forbid for device makefiles: AppDataBackup (its skip-on-Pixel check reads
 # PRODUCT_MANUFACTURER, which inherited product makefiles never see) and the
 # vendor/gms system apps. Same allow-list as device/google/shusky (husky).
@@ -34,7 +34,7 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 # Device
 $(call inherit-product, device/google/yogi/device.mk)
 
-# Lineage / Evolution X common
+# LineageOS / ExpressiveOS common
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 PRODUCT_DEVICE := yogi
@@ -52,16 +52,16 @@ PRODUCT_GMS_CLIENTID_BASE := android-google
 TARGET_SCREEN_HEIGHT := 2342
 TARGET_SCREEN_WIDTH := 1080
 
-# Evolution X's Settings overlay: ExpressiveOS's maintainer (overlay-evolution).
+# Settings overlay: ExpressiveOS's maintainer on the Android version screen.
 # PRODUCT_, not DEVICE_PACKAGE_OVERLAYS: generic_system.mk's
 # PRODUCT_ENFORCE_RRO_TARGETS := * makes it an RRO, and a device overlay's goes
 # on /vendor, which is stock here and never built.
 PRODUCT_PACKAGE_OVERLAYS += device/google/yogi/overlay-evolution
 
-# Evolution X
+# ExpressiveOS
 WITH_GMS := true
 TARGET_HAS_UDFPS := false
-# Only ExpressiveOS's own animation (vendor/extra/bootanimation), not Evolution X's
+# Only ExpressiveOS's own animation (vendor/extra/bootanimation), not the
 # other styles (about 190 MiB in /product/media). Product config reads this file
 # before the ones it inherits, so this wins over vendor/lineage's common.mk default
 # (?= true) for every build of this tree.

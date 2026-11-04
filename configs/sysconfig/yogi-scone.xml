@@ -5,7 +5,7 @@
 
     Stock's SCONE entries, from product/etc/sysconfig/google.xml,
     pixel_experience_2017.xml and preinstalled-packages-pixel-carrier.xml.
-    Those files are shared with packages Evolution's GMS configures differently,
+    Those files are shared with packages vendor/gms configures differently,
     so only the SCONE lines are carried here.
 -->
 <config>

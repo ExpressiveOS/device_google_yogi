@@ -4,7 +4,7 @@
 #
 # Pixel 11 Pro Fold (yogi), Tensor G6 (malibu).
 #
-# Bring-up layout: Evolution X builds system, system_ext, product, init_boot,
+# Bring-up layout: ExpressiveOS builds system, system_ext, product, init_boot,
 # vendor_boot (recovery) and the vbmeta images. The kernel, dtbo,
 # vendor, vendor_dlkm and system_dlkm come from the stock factory image,
 # because Google publishes no malibu vendor sources (SELinux policy, HAL
