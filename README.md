@@ -62,9 +62,6 @@ The manifest doesn't sync the two folders of Google's files this tree needs. The
 The kit builds the `user` variant. `userdebug` mounts debugfs early, which the stock vendor
 policy denies, and the display driver can panic on boot.
 
-`patches/` and `apply-patches.sh` come from before ExpressiveOS had its own sources; the kit
-doesn't run them.
-
 Extract the blobs from the phone's own image, never from kodiak's: their contents
 match, but stock signs several of them with the phone's own platform key, and the
 stock vendor SELinux policy only trusts that phone's key.
