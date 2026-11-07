@@ -1,0 +1,3 @@
+# Google's types for the boot control HAL's devices (stock vendor policy)
+type devinfo_block_device, dev_type;
+type ufs_bsg_device, dev_type;

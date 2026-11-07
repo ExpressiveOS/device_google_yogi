@@ -173,6 +173,13 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/private
 
+# Recovery's SELinux policy and file_contexts are built here, not taken from the
+# stock vendor image, so they lack Google's vendor labels for the partitions,
+# the display and the boot control HAL's devices: fastbootd then waits forever
+# for the boot HAL and recovery draws nothing (stuck on the G logo). The vendor
+# image is prebuilt, so this vendor policy only reaches recovery (vendor_boot).
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/recovery
+
 # Verified boot (same chain layout as stock and LineageOS laguna)
 BOARD_AVB_ENABLE := true
 ifneq (,$(AVB_CUSTOM_KEY_PATH))

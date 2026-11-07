@@ -1,0 +1,10 @@
+# android.hardware.boot-service.default_recovery-pixel, as the stock vendor
+# policy allows it: slot metadata in devinfo, the UFS boot LUN switch (bsg and
+# sysfs) and Trusty. Without these it can't start in recovery, so fastbootd
+# waits for it forever and never brings up USB.
+allow hal_bootctl_default devinfo_block_device:blk_file rw_file_perms;
+allow hal_bootctl_default ufs_bsg_device:chr_file { ioctl read write open };
+allow hal_bootctl_default sysfs_ota:file rw_file_perms;
+allow hal_bootctl_default tee_device:chr_file rw_file_perms;
+allow hal_bootctl_default rootfs:dir r_dir_perms;
+allow hal_bootctl_default self:capability sys_rawio;
