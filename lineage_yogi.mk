@@ -69,7 +69,7 @@ TARGET_INCLUDE_BOOT_ANIMATIONS := false
 TARGET_ENABLE_BLUR := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="yogi-user 17 CD1A.261005.003 16262255 release-keys" \
-    BuildFingerprint=google/yogi/yogi:17/CD1A.261005.003/16262255:user/release-keys \
-    BuildSystemFingerprint=google/generic_system_google/generic:17/CD1A.261005.003/16262255:user/release-keys \
+    BuildDesc="yogi-user 17 CP4A.261105.040.D1 16731845 release-keys" \
+    BuildFingerprint=google/yogi/yogi:17/CP4A.261105.040.D1/16731845:user/release-keys \
+    BuildSystemFingerprint=google/generic_system_google/generic:17/CP4A.261105.040.D1/16731845:user/release-keys \
     DeviceProduct=yogi

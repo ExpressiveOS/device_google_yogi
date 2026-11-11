@@ -35,7 +35,7 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_PREBUILT_BOOTIMAGE := $(IMAGES_PATH)/images/boot.img
 BOARD_PREBUILT_DTBOIMAGE := $(IMAGES_PATH)/images/dtbo.img
 
-# vendor_boot header and cmdline match stock CD1A.261005.003. mkbootimg's
+# vendor_boot header and cmdline match stock CP4A.261105.040.D1. mkbootimg's
 # defaults (base 0x10000000, page size 2048, offsets) already match stock.
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
@@ -44,6 +44,8 @@ BOARD_MKBOOTIMG_INIT_ARGS += --header_version $(BOARD_INIT_BOOT_HEADER_VERSION)
 BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_KERNEL_CMDLINE += \
+    workqueue.power_efficient=1 \
+    f2fs.num_compress_pages=128 \
     spmi_smartdv.load_sequential=1 \
     regmap-goog-spmi.load_sequential=1 \
     max77779_pmic.load_sequential=1 \
@@ -218,7 +220,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 endif
 
 # Security patch level of the stock vendor/boot images
-BOOT_SECURITY_PATCH := 2026-10-05
+BOOT_SECURITY_PATCH := 2026-11-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # With verification off (--flags 3) the bootloader reads properties only from

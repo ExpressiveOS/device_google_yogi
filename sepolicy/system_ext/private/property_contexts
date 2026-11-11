@@ -18,6 +18,12 @@ persist.vendor.nfc.factoryota.                  u:object_r:sota_prop:s0
 audio.camerasound.locale.enabled                u:object_r:audio_config_prop:s0 exact bool
 ro.egl.blobcache.multifile_dir_suffix           u:object_r:graphics_config_prop:s0 exact string
 
+# Stock CP4A.261105.040.D1 labels this in its platform policy, exactly so. Its audio
+# HAL (now in the vendor APEX com.google.pixel.audio.hal) reads it when an LE Audio
+# link is set up; under our older base it fell to bluetooth_prop and the HAL was
+# denied (357 denials in one boot). hal_audio may read bluetooth_a2dp_offload_prop.
+persist.bluetooth.leaudio_sw_offload.lc3.enabled u:object_r:bluetooth_a2dp_offload_prop:s0 exact bool
+
 pixelsystemservice.device.contextualawarenessbool       u:object_r:pixelsystemservice_contextualawareness_prop:s0 exact bool
 
 # Face unlock device_config flags (stock system_ext label).
