@@ -4,7 +4,7 @@
   SPDX-License-Identifier: Apache-2.0
 -->
 <permissions>
-    <privapp-permissions package="org.evolution.hilight">
+    <privapp-permissions package="org.expressiveos.hilight">
         <permission name="android.permission.CONTROL_DEVICE_LIGHTS" />
         <permission name="android.permission.WRITE_SECURE_SETTINGS" />
     </privapp-permissions>

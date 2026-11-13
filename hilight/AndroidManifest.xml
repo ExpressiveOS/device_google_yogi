@@ -4,7 +4,7 @@
   SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.evolution.hilight">
+    package="org.expressiveos.hilight">
 
     <!-- The HiLight settings are Settings.Secure keys. -->
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
