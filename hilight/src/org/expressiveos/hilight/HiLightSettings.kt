@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.evolution.hilight
+package org.expressiveos.hilight
 
 import android.content.ContentResolver
 import android.provider.Settings
