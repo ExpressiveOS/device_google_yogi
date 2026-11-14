@@ -110,6 +110,14 @@ AB_OTA_PARTITIONS += \
 BOARD_FLASH_BLOCK_SIZE := 4096
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 0x00800000
+
+# SukiSU (ExpressiveOS only): expressiveos-cheetah/tools/eos-make.sh builds once, patches that
+# build's init_boot with SukiSU (ksu/tools/cheetah-ksu.sh), then builds again with
+# EOS_KSU_INIT_BOOT set, so the images and the OTA ship the patched init_boot (signed with the
+# init_boot AVB key below like a built one)
+ifneq ($(EOS_KSU_INIT_BOOT),)
+BOARD_PREBUILT_INIT_BOOT_IMAGE := $(EOS_KSU_INIT_BOOT)
+endif
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 0x04000000
 BOARD_DTBOIMG_PARTITION_SIZE := 0x01000000
 BOARD_PVMFWIMAGE_PARTITION_SIZE := 0x00100000

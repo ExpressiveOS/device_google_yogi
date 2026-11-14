@@ -49,7 +49,11 @@ PRODUCT_PACKAGES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
+# Built from source, unless the kit gives a SukiSU init_boot (EOS_KSU_INIT_BOOT, BoardConfig.mk):
+# set to true, board_config.mk builds it even with BOARD_PREBUILT_INIT_BOOT_IMAGE
+ifeq ($(EOS_KSU_INIT_BOOT),)
 PRODUCT_BUILD_INIT_BOOT_IMAGE := true
+endif
 PRODUCT_BUILD_VENDOR_BOOT_IMAGE := true
 
 # A/B
@@ -151,3 +155,13 @@ $(call inherit-product, vendor/google/yogi/yogi-vendor.mk)
 # Face unlock enrollment app's user types, from stock preinstalled-packages-tuscany.xml
 PRODUCT_COPY_FILES += \
     device/google/yogi/configs/sysconfig/preinstalled-packages-faceenroll.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/preinstalled-packages-faceenroll.xml
+
+# SukiSU (ExpressiveOS: root out of the box): its manager APK and the first-boot setup that
+# installs it to /data (vendor/extra/ksu, which ExpressiveOS's expressiveos-cheetah/ksu/apply-ksu.sh
+# stages). No app gets root until the user grants it in the manager. Only with a SukiSU init_boot
+# (EOS_KSU_INIT_BOOT, set by the kit when devices/yogi.conf has EOS_KSU=lkm), so a build without
+# root installs none of it.
+ifneq ($(EOS_KSU_INIT_BOOT),)
+PRODUCT_PACKAGES += \
+    eos-sukisu
+endif
