@@ -174,6 +174,9 @@ TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 # sepolicy/system_ext/public/apps.te and check-sepolicy.sh.
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/public
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/system_ext/private
+# vendor.img is prebuilt, so device/lineage/sepolicy puts common/dynamic into a vendor
+# policy that never ships. Add it to system_ext so vendor.lineage.* services get labels.
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += device/lineage/sepolicy/common/dynamic
 
 # Recovery's SELinux policy and file_contexts are built here, not taken from the
 # stock vendor image, so they lack Google's vendor labels for the partitions,
