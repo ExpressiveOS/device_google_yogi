@@ -151,3 +151,11 @@ $(call inherit-product, vendor/google/yogi/yogi-vendor.mk)
 # Face unlock enrollment app's user types, from stock preinstalled-packages-tuscany.xml
 PRODUCT_COPY_FILES += \
     device/google/yogi/configs/sysconfig/preinstalled-packages-faceenroll.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/preinstalled-packages-faceenroll.xml
+
+# Wild Kernels' boot (EOS_WILD_BOOT, BoardConfig): its release, 6.x.y-androidNN-Wild, isn't a
+# GKI release string, so the build's kernel VINTF check can't tell its kernel FCM level and
+# fails. Off for that boot only: the kernel is Google's GKI of the same KMI with BakaSU and
+# susfs added, booted on a phone first. A product variable, so here and not in BoardConfig.
+ifneq ($(EOS_WILD_BOOT),)
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+endif
