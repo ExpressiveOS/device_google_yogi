@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_yogi.mk
+    $(LOCAL_DIR)/eos_yogi.mk

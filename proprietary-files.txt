@@ -186,6 +186,7 @@ product/etc/permissions/com.google.pixel.camera.services.cameraidremapper.impl.x
 product/etc/permissions/com.google.pixel.camera.services.lyricconfigprovider.impl.xml
 product/etc/sysconfig/preinstalled-packages-camera-services-base.xml
 product/etc/sysconfig/preinstalled-packages-camera-services-common.xml
+product/priv-app/GoogleCamera/GoogleCamera.apk;OVERRIDES=Camera2;PRESIGNED
 product/priv-app/PixelCameraServices/PixelCameraServices.apk;PRESIGNED
 system_ext/etc/permissions/com.google.android.camera.extensions.xml
 system_ext/etc/permissions/com.google.android.camerax.extensions.xml

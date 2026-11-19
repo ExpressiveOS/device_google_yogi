@@ -1,0 +1,4 @@
+# QPR2 (CP4A) stock vendor device types referenced by vendor_sepolicy.cil
+# (gnss_daemon/imsmediahaldaemon/mtk_* and ufs_firmware_update).
+type mtk_wwan_device, dev_type;
+type ufs_internal_block_device, dev_type;

@@ -1,2 +1,5 @@
 # From stock's system_ext policy (sota.* labels are in property_contexts).
 set_prop(vendor_init, sota_prop)
+# QPR2 (CP4A) stock system_ext grants for root/userdata disk mount props.
+set_prop(vendor_init, rootdisk_prop)
+set_prop(vendor_init, userdisk_prop)

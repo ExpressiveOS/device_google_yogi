@@ -18,13 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system_ext.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_product.mk)
 
-# ExpressiveOS puts these in /system, which generic_system.mk's artifact-path
-# rules forbid for device makefiles: AppDataBackup (its skip-on-Pixel check reads
-# PRODUCT_MANUFACTURER, which inherited product makefiles never see) and the
-# vendor/gms system apps. Same allow-list as device/google/shusky (husky).
+# ExpressiveOS puts these vendor/gms system apps in /system, which
+# generic_system.mk's artifact-path rules forbid for device makefiles.
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
-    system/etc/permissions/privapp-permissions-appbackup.xml \
-    system/priv-app/AppDataBackup/% \
     system/app/GoogleExtShared/% \
     system/app/GooglePrintRecommendationService/% \
     system/priv-app/DocumentsUIGoogle/% \
@@ -34,11 +30,11 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
 # Device
 $(call inherit-product, device/google/yogi/device.mk)
 
-# LineageOS / ExpressiveOS common
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# ExpressiveOS common
+$(call inherit-product, vendor/expressiveos/config/common.mk)
 
 PRODUCT_DEVICE := yogi
-PRODUCT_NAME := lineage_yogi
+PRODUCT_NAME := eos_yogi
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 11 Pro Fold
 PRODUCT_MANUFACTURER := Google
@@ -61,11 +57,6 @@ PRODUCT_PACKAGE_OVERLAYS += device/google/yogi/overlay-expressiveos
 # ExpressiveOS
 WITH_GMS := true
 TARGET_HAS_UDFPS := false
-# Only ExpressiveOS's own animation (vendor/extra/bootanimation), not the
-# other styles (about 190 MiB in /product/media). Product config reads this file
-# before the ones it inherits, so this wins over vendor/lineage's common.mk default
-# (?= true) for every build of this tree.
-TARGET_INCLUDE_BOOT_ANIMATIONS := false
 TARGET_ENABLE_BLUR := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \

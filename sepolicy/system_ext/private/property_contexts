@@ -32,3 +32,8 @@ persist.device_config.pixel_faceauth.           u:object_r:device_config_faceaut
 # Stock system_ext labels.
 persist.fingerprint.screenprotector.config      u:object_r:fingerprint_sp_prop:s0 exact string
 setupwizard.feature.provisioning_profile_mode   u:object_r:setupwizard_feature_prop:s0
+
+# QPR2 (CP4A) stock system_ext property labels.
+persist.com.google.hardware.biometrics.face.exp1.enabled u:object_r:google_biometrics_face_prop:s0 exact bool
+dev.mnt.rootdisk.root                                    u:object_r:rootdisk_prop:s0 exact string
+dev.mnt.dev.userdata                                     u:object_r:userdisk_prop:s0 exact string
