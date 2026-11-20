@@ -16,5 +16,5 @@ system_public_prop(setupwizard_feature_prop)
 # QPR2 (CP4A) properties referenced by stock vendor (hal_face_default,
 # pixelstats_vendor).
 system_restricted_prop(google_biometrics_face_prop)
-system_restricted_prop(rootdisk_prop)
-system_restricted_prop(userdisk_prop)
+system_public_prop(rootdisk_prop)
+system_public_prop(userdisk_prop)
