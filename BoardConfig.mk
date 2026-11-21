@@ -104,7 +104,8 @@ AB_OTA_PARTITIONS += \
     vbmeta_vendor \
     vendor \
     vendor_boot \
-    vendor_dlkm
+    vendor_dlkm \
+    vendor_kernel_boot
 
 # Partitions (sizes from the stock factory image)
 BOARD_FLASH_BLOCK_SIZE := 4096
