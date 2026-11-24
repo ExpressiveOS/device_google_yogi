@@ -1,6 +1,7 @@
 # Recovery and fastbootd only. Android labels these from the stock vendor
 # image's vendor_file_contexts, but recovery's file_contexts come from this
-# build. Lines copied from the stock CD1A.261005.003 vendor_boot recovery.
+# build. Lines copied from the stock CP4A vendor_boot recovery.
+/dev/block/by-name/userdata_exp.*                            u:object_r:userdata_exp_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/boot_[ab]          u:object_r:boot_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/init_boot_[ab]     u:object_r:boot_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/dtbo_[ab]          u:object_r:dtbo_block_device:s0
@@ -9,7 +10,10 @@
 /dev/block/platform/3c2d0000\.ufs/by-name/metadata           u:object_r:metadata_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/misc               u:object_r:misc_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/super              u:object_r:super_block_device:s0
+/dev/block/platform/3c2d0000\.ufs/by-name/trusty_userdata    u:object_r:tee_userdata_block_device:s0
 /dev/block/platform/3c2d0000\.ufs/by-name/userdata           u:object_r:userdata_block_device:s0
 /dev/dri/card[0-9]                                           u:object_r:graphics_device:s0
+/dev/gsc0                                                    u:object_r:citadel_device:s0
+/dev/st54spi                                                 u:object_r:st54spi_device:s0
 /dev/trusty-ipc-dev0                                         u:object_r:tee_device:s0
 /dev/ufs-bsg.                                                u:object_r:ufs_bsg_device:s0
