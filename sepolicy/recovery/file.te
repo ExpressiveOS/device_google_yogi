@@ -1,1 +1,2 @@
 type sysfs_ota, sysfs_type, fs_type;
+type sysfs_scsi_devices_0000, sysfs_type, fs_type;

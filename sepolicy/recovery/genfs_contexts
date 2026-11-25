@@ -1,1 +1,2 @@
 genfscon sysfs /devices/platform/3c2d0000.ufs/pixel/boot_lun_enabled u:object_r:sysfs_ota:s0
+genfscon sysfs /devices/platform/3c2d0000.ufs/host0/target0:0:0/0:0:0: u:object_r:sysfs_scsi_devices_0000:s0
